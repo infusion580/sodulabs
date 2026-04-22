@@ -1,40 +1,31 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  Code2,
-  Smartphone,
-  Palette,
-  Cpu,
-  Globe,
-  Zap,
-  Bot,
-  Search,
-  Cloud,
-  ShieldCheck,
-  LineChart,
-  Plug,
-  Megaphone,
-  Wrench,
-} from "lucide-react";
+import { Palette, Code2, Megaphone, Lightbulb } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { icon: Code2, title: "Desarrollo Web", desc: "Sitios y aplicaciones rápidas, accesibles y SEO-friendly. Stack moderno: React, Next, TanStack." },
-  { icon: Smartphone, title: "Apps Móviles", desc: "Aplicaciones nativas y cross-platform con experiencia fluida y diseño centrado en el usuario." },
-  { icon: Palette, title: "Diseño UI/UX", desc: "Identidad visual, sistemas de diseño e interfaces que combinan estética y conversión." },
-  { icon: Cpu, title: "Sistemas a Medida", desc: "ERPs, dashboards y plataformas internas que automatizan tu operación end-to-end." },
-  { icon: Globe, title: "E-commerce", desc: "Tiendas online optimizadas para vender: pasarelas, inventario y analítica integrada." },
-  { icon: Zap, title: "Automatización & IA", desc: "Integramos IA y workflows para escalar procesos: bots, agentes y pipelines inteligentes." },
-  { icon: Bot, title: "Chatbots & Agentes", desc: "Asistentes inteligentes para WhatsApp, web y redes que atienden, califican y convierten 24/7." },
-  { icon: Search, title: "SEO & Performance", desc: "Optimización técnica, contenido y Core Web Vitals para que Google te encuentre primero." },
-  { icon: Cloud, title: "Cloud & DevOps", desc: "Despliegue, CI/CD, monitoreo e infraestructura escalable en AWS, Vercel y Cloudflare." },
-  { icon: ShieldCheck, title: "Ciberseguridad", desc: "Auditorías, hardening y protección de datos para mantener tu plataforma a salvo." },
-  { icon: LineChart, title: "Analítica & Datos", desc: "Dashboards, tracking y reportes que convierten datos en decisiones de negocio." },
-  { icon: Plug, title: "Integraciones & APIs", desc: "Conectamos Stripe, HubSpot, Notion, Sheets y cualquier sistema con APIs a medida." },
-  { icon: Megaphone, title: "Marketing Digital", desc: "Landing pages, embudos y campañas que generan leads cualificados y ventas reales." },
-  { icon: Wrench, title: "Mantenimiento & Soporte", desc: "Cuidamos, actualizamos y evolucionamos tu producto digital mes a mes." },
+  {
+    icon: Palette,
+    title: "Branding e Identidad de Marca",
+    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+  },
+  {
+    icon: Code2,
+    title: "Diseño y Desarrollo Web",
+    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+  },
+  {
+    icon: Megaphone,
+    title: "Publicidad y Campañas de Marketing",
+    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Consultoría Creativa y Desarrollo",
+    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+  },
 ];
 
 export function Services() {
