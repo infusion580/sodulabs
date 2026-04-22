@@ -35,9 +35,9 @@ export function Header() {
         <a href="#hero" className="flex items-center gap-2 font-display text-xl font-bold">
           <span className="relative flex h-8 w-8 items-center justify-center">
             <span className="absolute inset-0 rounded-lg bg-gradient-primary shadow-glow-sm" />
-            <span className="relative text-primary-foreground font-mono text-sm">N</span>
+            <span className="relative text-primary-foreground font-mono text-sm">S</span>
           </span>
-          <span className="text-gradient">NOXLAB</span>
+          <span className="text-gradient">Sudo Labs</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

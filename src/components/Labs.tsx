@@ -48,7 +48,7 @@ export function Labs() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Noxlab · Innovación
+              Sudo Labs · Innovación
             </div>
             <h2 className="mt-6 font-display text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]">
               Nuestros

@@ -58,7 +58,7 @@ export function Quote() {
 
   const onSubmit = (data: FormData) => {
     const lines = [
-      "*Nueva Cotización — NOXLAB*",
+      "*Nueva Cotización — Sudo Labs*",
       `*Nombre:* ${data.nombre}`,
       `*Teléfono:* ${data.telefono}`,
       `*Tipo:* ${data.tipo === "sitio" ? "Sitio Web" : "Sistema complejo"}`,

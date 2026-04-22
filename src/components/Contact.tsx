@@ -57,13 +57,13 @@ export function Contact() {
           </a>
 
           <a
-            href="mailto:hola@noxlab.dev"
+            href="mailto:hola@sudolabs.dev"
             className="group glass rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-glow-sm"
           >
             <Mail className="h-8 w-8 text-primary mb-4" />
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</div>
             <div className="mt-2 font-display text-xl font-bold group-hover:text-gradient-primary transition">
-              hola@noxlab.dev
+              hola@sudolabs.dev
             </div>
             <div className="mt-3 text-sm text-muted-foreground">Para propuestas formales</div>
           </a>
