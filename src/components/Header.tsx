@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { MenuIcon as Menu, CloseIcon as X } from "@/components/icons";
 import { Logo } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "#hero", label: "Inicio" },
   { href: "#servicios", label: "Servicios" },
-  { href: "#cotizacion", label: "Cotización" },
+  { href: "#proceso", label: "Proceso" },
   { href: "#labs", label: "Labs" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -50,12 +52,15 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href="#cotizacion"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-sm transition-transform hover:scale-105"
-        >
-          Cotizar ahora
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <a
+            href="#cotizacion"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-sm transition-transform hover:scale-105"
+          >
+            Cotizar ahora
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
