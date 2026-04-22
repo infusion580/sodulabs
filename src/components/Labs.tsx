@@ -85,10 +85,17 @@ export function Labs() {
               <h3 className="relative mt-8 font-display text-3xl md:text-4xl font-bold">{lab.name}</h3>
               <p className="relative mt-4 text-base text-muted-foreground leading-relaxed">{lab.desc}</p>
 
-              <div className="relative mt-8 flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary-glow transition-colors">
-                Conocer más
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  `Hola Sudo Labs, me interesa pedir una demo de "${lab.name}".`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-sm transition-all hover:shadow-glow hover:-translate-y-0.5"
+              >
+                Pedir demo
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </div>
+              </a>
             </div>
           ))}
         </div>
