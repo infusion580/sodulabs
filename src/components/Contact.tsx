@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import pkg from "lucide-react";
-const { Mail, MessageCircle, MapPin, Instagram, Linkedin, Github } = pkg;
+import * as LucideIcons from "lucide-react";
+const { Mail, MessageCircle, MapPin, Instagram, Linkedin, Github } = LucideIcons;
 
 gsap.registerPlugin(ScrollTrigger);
 
