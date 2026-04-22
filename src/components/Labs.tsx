@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
 import { MagneticButton } from "@/components/MagneticButton";
 
-const WHATSAPP_NUMBER = "5215555555555";
+const WHATSAPP_NUMBER = "525658751914";
 
 const labs = [
   {

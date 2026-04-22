@@ -13,7 +13,7 @@ const MessageCircle = ({ className }: { className?: string }) => (
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_NUMBER = "5215555555555"; // Cambia este número
+const WHATSAPP_NUMBER = "525658751914";
 
 const schema = z.object({
   nombre: z.string().trim().min(2, "Ingresa tu nombre").max(80, "Máximo 80 caracteres"),

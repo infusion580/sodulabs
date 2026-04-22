@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_NUMBER = "5215555555555";
+const WHATSAPP_NUMBER = "525658751914";
 
 const quickLinks = [
   { label: "Inicio", href: "#hero", short: "01" },
