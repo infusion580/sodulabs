@@ -1,11 +1,6 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ShieldIcon as Shield, BookOpenIcon as BookOpen, ArrowUpRightIcon as ArrowUpRight } from "@/components/icons";
 
 const WHATSAPP_NUMBER = "5215555555555";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const labs = [
   {
@@ -25,74 +20,56 @@ const labs = [
 ];
 
 export function Labs() {
-  const root = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".labs-anim", {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "expo.out",
-        scrollTrigger: { trigger: root.current, start: "top 75%" },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={root} id="labs" className="relative py-32 overflow-hidden">
-      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+    <section id="labs" className="relative overflow-hidden py-32">
+      <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="labs-anim flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Sudo Labs · Innovación
             </div>
-            <h2 className="mt-6 font-display text-5xl md:text-7xl font-bold tracking-tight leading-[0.95]">
+            <h2 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
               Nuestros
               <br />
-              <span className="text-gradient-primary italic font-light">experimentos.</span>
+              <span className="text-gradient-primary font-light italic">experimentos.</span>
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground max-w-md">
+          <p className="max-w-md text-lg text-muted-foreground">
             Productos propios donde probamos ideas, tecnologías y formas de resolver problemas reales.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           {labs.map((lab) => (
             <div
               key={lab.name}
-              className="labs-anim group relative overflow-hidden rounded-3xl glass p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow"
+              className="group relative overflow-hidden rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow md:p-10"
             >
               <div className={`absolute -top-32 -right-32 h-64 w-64 rounded-full bg-gradient-to-br ${lab.color} opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40`} />
 
-              <div className="relative flex items-start justify-between">
+              <div className="relative flex items-start justify-between gap-4">
                 <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${lab.color} shadow-glow-sm`}>
                   <lab.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
-                <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full glass">
+                <span className="rounded-full glass px-3 py-1 font-mono text-xs uppercase tracking-widest">
                   {lab.tag}
                 </span>
               </div>
 
-              <h3 className="relative mt-8 font-display text-3xl md:text-4xl font-bold">{lab.name}</h3>
-              <p className="relative mt-4 text-base text-muted-foreground leading-relaxed">{lab.desc}</p>
+              <h3 className="relative mt-8 font-display text-3xl font-bold md:text-4xl">{lab.name}</h3>
+              <p className="relative mt-4 text-base leading-relaxed text-muted-foreground">{lab.desc}</p>
 
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                  `Hola Sudo Labs, me interesa pedir una demo de "${lab.name}".`,
-                )}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hola Sudo Labs, me interesa pedir una demo de "${lab.name}".`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-sm transition-all hover:shadow-glow hover:-translate-y-0.5"
+                className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-sm transition-all hover:-translate-y-0.5 hover:shadow-glow"
               >
                 Pedir demo
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
               </a>
             </div>
           ))}
