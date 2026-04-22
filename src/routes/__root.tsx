@@ -24,24 +24,83 @@ function NotFoundComponent() {
   );
 }
 
+const SITE_URL = "https://sudolabs.dev";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "theme-color", content: "#0a0a0a" },
+      { name: "format-detection", content: "telephone=no" },
+      { title: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
+      {
+        name: "description",
+        content:
+          "Estudio digital en LATAM: diseño y desarrollo de sitios web, apps móviles y sistemas a medida con IA y automatización.",
+      },
+      {
+        name: "keywords",
+        content:
+          "estudio digital, desarrollo web, diseño web, apps móviles, sistemas a medida, automatización con IA, consultoría tecnológica, México, LATAM, Sudo Labs",
+      },
+      { name: "author", content: "Sudo Labs" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "googlebot", content: "index, follow" },
+      // Open Graph
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Sudo Labs" },
+      { property: "og:locale", content: "es_MX" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:title", content: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
+      {
+        property: "og:description",
+        content:
+          "Construimos experiencias digitales que importan: web, apps y sistemas a medida con IA.",
+      },
+      // Twitter
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sudo Labs — Estudio digital" },
+      {
+        name: "twitter:description",
+        content:
+          "Web, apps y sistemas a medida con IA. Estudio digital en LATAM.",
+      },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}#organization`,
+              name: "Sudo Labs",
+              url: SITE_URL,
+              email: "hola@sudolabs.dev",
+              description:
+                "Estudio digital especializado en sitios web, aplicaciones móviles y sistemas a medida con IA.",
+              areaServed: "LATAM",
+              sameAs: [],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}#website`,
+              url: SITE_URL,
+              name: "Sudo Labs",
+              inLanguage: "es-MX",
+              publisher: { "@id": `${SITE_URL}#organization` },
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -52,7 +111,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

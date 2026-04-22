@@ -19,22 +19,52 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
+      { title: "Sudo Labs — Estudio digital · Web, Apps y Sistemas a medida" },
       {
         name: "description",
         content:
-          "Estudio digital especializado en sitios web, aplicaciones móviles y sistemas a medida. Diseño, desarrollo y automatización con IA.",
+          "Estudio digital en LATAM: diseño y desarrollo de sitios web, aplicaciones móviles, sistemas a medida y automatización con IA. Pide tu cotización.",
       },
-      { property: "og:title", content: "Sudo Labs — Estudio digital" },
+      { property: "og:title", content: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
       {
         property: "og:description",
-        content: "Construimos experiencias digitales que importan: web, apps y sistemas.",
+        content:
+          "Diseñamos y desarrollamos web, apps móviles y sistemas a medida con IA. Cotiza tu proyecto en minutos.",
+      },
+      { property: "og:url", content: "https://sudolabs.dev/" },
+      { name: "twitter:title", content: "Sudo Labs — Estudio digital" },
+      {
+        name: "twitter:description",
+        content: "Web, apps y sistemas a medida con IA. Cotiza tu proyecto.",
       },
     ],
     links: [
+      { rel: "canonical", href: "https://sudolabs.dev/" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Sudo Labs",
+          url: "https://sudolabs.dev",
+          email: "hola@sudolabs.dev",
+          telephone: "+52-565-875-1914",
+          description:
+            "Estudio digital: diseño y desarrollo de sitios web, apps móviles y sistemas a medida con IA.",
+          areaServed: "LATAM",
+          serviceType: [
+            "Diseño y Desarrollo Web",
+            "Desarrollo de Apps",
+            "Gestión Profesional de Proyectos",
+            "Consultoría Creativa y de Desarrollo",
+          ],
+        }),
       },
     ],
   }),
