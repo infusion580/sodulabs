@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as LucideIcons from "lucide-react";
-
-const { Shield, BookOpen, ArrowUpRight } = LucideIcons;
+import { ShieldIcon as Shield, BookOpenIcon as BookOpen, ArrowUpRightIcon as ArrowUpRight } from "@/components/icons";
 
 const WHATSAPP_NUMBER = "5215555555555";
 
