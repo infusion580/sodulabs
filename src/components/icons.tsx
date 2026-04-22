@@ -82,6 +82,7 @@ export const LightbulbIcon = ({ size, ...p }: IconProps) => (
   <svg {...base(size)} {...p}>
     <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.5 1 2.3v0h6v0c0-.8.3-1.7 1-2.3A7 7 0 0 0 12 2z" />
   </svg>
+);
 
 
 export const SearchIcon = ({ size, ...p }: IconProps) => (
