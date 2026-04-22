@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 const WHATSAPP_NUMBER = "5215555555555";
 
 export function WhatsAppFloat() {
-  const text = encodeURIComponent("Hola NOXLAB, me interesa saber más sobre sus servicios.");
+  const text = encodeURIComponent("Hola Sudo Labs, me interesa saber más sobre sus servicios.");
   return (
     <a
       href={`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`}

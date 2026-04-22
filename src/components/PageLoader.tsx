@@ -40,7 +40,7 @@ export function PageLoader() {
     >
       <div className="absolute inset-0 bg-gradient-radial opacity-60" />
       <div ref={wordRef} className="relative font-display text-5xl md:text-7xl font-bold tracking-tight">
-        <span className="text-gradient-primary">NOXLAB</span>
+        <span className="text-gradient-primary">SUDO LABS</span>
       </div>
       <div className="relative mt-10 w-64 md:w-80">
         <div className="h-px w-full bg-border overflow-hidden">

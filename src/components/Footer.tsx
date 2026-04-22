@@ -7,9 +7,9 @@ export function Footer() {
           <div className="flex items-center gap-2 font-display text-xl font-bold">
             <span className="relative flex h-8 w-8 items-center justify-center">
               <span className="absolute inset-0 rounded-lg bg-gradient-primary shadow-glow-sm" />
-              <span className="relative text-primary-foreground font-mono text-sm">N</span>
+              <span className="relative text-primary-foreground font-mono text-sm">S</span>
             </span>
-            <span className="text-gradient">NOXLAB</span>
+            <span className="text-gradient">Sudo Labs</span>
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -20,14 +20,14 @@ export function Footer() {
           </nav>
 
           <div className="text-xs font-mono text-muted-foreground">
-            © {new Date().getFullYear()} NOXLAB · Todos los derechos reservados
+            © {new Date().getFullYear()} Sudo Labs · Todos los derechos reservados
           </div>
         </div>
 
         {/* Massive logo */}
         <div className="mt-16 overflow-hidden">
           <div className="font-display font-bold text-[20vw] leading-none tracking-tighter text-center text-gradient-primary opacity-20 select-none">
-            NOXLAB
+            SUDO LABS
           </div>
         </div>
       </div>

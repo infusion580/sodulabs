@@ -13,13 +13,13 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NOXLAB — Estudio digital · Web, Apps y Sistemas" },
+      { title: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
       {
         name: "description",
         content:
           "Estudio digital especializado en sitios web, aplicaciones móviles y sistemas a medida. Diseño, desarrollo y automatización con IA.",
       },
-      { property: "og:title", content: "NOXLAB — Estudio digital" },
+      { property: "og:title", content: "Sudo Labs — Estudio digital" },
       {
         property: "og:description",
         content: "Construimos experiencias digitales que importan: web, apps y sistemas.",
