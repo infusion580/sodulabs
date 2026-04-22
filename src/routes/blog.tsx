@@ -13,14 +13,22 @@ export const Route = createFileRoute("/blog")({
       {
         name: "description",
         content:
-          "Artículos y notas del estudio sobre desarrollo web, apps, IA, automatización y diseño de producto.",
+          "Artículos del estudio sobre desarrollo web, apps móviles, IA, automatización y diseño de producto.",
       },
-      { property: "og:title", content: "Blog — Sudo Labs" },
+      { property: "og:title", content: "Blog — Sudo Labs · Notas de diseño y código" },
       {
         property: "og:description",
-        content: "Artículos del estudio sobre desarrollo, IA y diseño de producto.",
+        content:
+          "Aprendizajes y decisiones técnicas del estudio: desarrollo, IA y diseño de producto.",
+      },
+      { property: "og:url", content: "https://sudolabs.dev/blog" },
+      { name: "twitter:title", content: "Blog — Sudo Labs" },
+      {
+        name: "twitter:description",
+        content: "Notas del estudio sobre desarrollo, IA y diseño de producto.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://sudolabs.dev/blog" }],
   }),
   component: BlogPage,
 });
