@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDownIcon as ArrowDown, SparklesIcon as Sparkles } from "@/components/icons";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);

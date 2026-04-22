@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { MenuIcon as Menu, CloseIcon as X } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 
 const links = [
