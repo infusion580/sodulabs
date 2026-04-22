@@ -1,9 +1,4 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PaletteIcon as Palette, Code2Icon as Code2, MegaphoneIcon as Megaphone, LightbulbIcon as Lightbulb } from "@/components/icons";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -29,31 +24,6 @@ const services = [
 ];
 
 export function Services() {
-  const root = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".srv-title", {
-        y: 80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "expo.out",
-        scrollTrigger: { trigger: ".srv-title", start: "top 85%" },
-      });
-      gsap.from(".srv-card", {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: { trigger: ".srv-grid", start: "top 80%" },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={root} id="servicios" className="relative py-32 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6">

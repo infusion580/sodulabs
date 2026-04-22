@@ -1,11 +1,6 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ShieldIcon as Shield, BookOpenIcon as BookOpen, ArrowUpRightIcon as ArrowUpRight } from "@/components/icons";
 
 const WHATSAPP_NUMBER = "5215555555555";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const labs = [
   {
@@ -25,24 +20,6 @@ const labs = [
 ];
 
 export function Labs() {
-  const root = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".labs-anim", {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "expo.out",
-        scrollTrigger: { trigger: root.current, start: "top 75%" },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={root} id="labs" className="relative py-32 overflow-hidden">
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6">
