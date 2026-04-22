@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 const links = [
   { href: "#hero", label: "Inicio" },
@@ -32,12 +33,8 @@ export function Header() {
         }`}
         style={scrolled ? { maxWidth: "min(80rem, calc(100% - 2rem))" } : {}}
       >
-        <a href="#hero" className="flex items-center gap-2 font-display text-xl font-bold">
-          <span className="relative flex h-8 w-8 items-center justify-center">
-            <span className="absolute inset-0 rounded-lg bg-gradient-primary shadow-glow-sm" />
-            <span className="relative text-primary-foreground font-mono text-sm">S</span>
-          </span>
-          <span className="text-gradient">Sudo Labs</span>
+        <a href="#hero" aria-label="Sudo Labs — Inicio" className="text-lg md:text-xl">
+          <Logo size={32} />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
