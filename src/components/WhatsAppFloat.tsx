@@ -4,7 +4,7 @@ const MessageCircle = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const WHATSAPP_NUMBER = "5215555555555";
+const WHATSAPP_NUMBER = "525658751914";
 
 export function WhatsAppFloat() {
   const text = encodeURIComponent("Hola Sudo Labs, me interesa saber más sobre sus servicios.");
