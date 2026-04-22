@@ -2,24 +2,24 @@ import { PaletteIcon as Palette, Code2Icon as Code2, MegaphoneIcon as Megaphone,
 
 const services = [
   {
-    icon: Palette,
-    title: "Branding e Identidad de Marca",
-    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
-  },
-  {
     icon: Code2,
     title: "Diseño y Desarrollo Web",
-    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+    desc: "Sitios y plataformas rápidas, accesibles y escalables, diseñadas a medida para convertir visitantes en clientes.",
+  },
+  {
+    icon: Palette,
+    title: "Desarrollo de Apps",
+    desc: "Aplicaciones móviles y web a medida, con experiencias fluidas, performance sólida y arquitectura preparada para crecer.",
   },
   {
     icon: Megaphone,
-    title: "Publicidad y Campañas de Marketing",
-    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+    title: "Gestión Profesional de Proyectos",
+    desc: "Coordinamos equipos, tiempos y entregables con metodologías ágiles para que tu proyecto avance con claridad y sin fricciones.",
   },
   {
     icon: Lightbulb,
-    title: "Consultoría Creativa y Desarrollo",
-    desc: "Nuestra agencia creativa es un equipo de profesionales enfocados en hacer crecer tu marca.",
+    title: "Consultoría Creativa y de Desarrollo",
+    desc: "Asesoría estratégica para definir producto, stack y dirección creativa, alineando tecnología con los objetivos de tu negocio.",
   },
 ];
 
