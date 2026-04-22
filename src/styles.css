@@ -145,6 +145,11 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
+  @media (pointer: fine) {
+    html, body, a, button, [role="button"] {
+      cursor: none;
+    }
+  }
   ::selection {
     background-color: var(--primary);
     color: var(--primary-foreground);
