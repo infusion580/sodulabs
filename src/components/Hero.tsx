@@ -57,7 +57,7 @@ export function Hero() {
           <span className="hero-line block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-foreground">
             Construimos
           </span>
-          <span className="hero-line block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-gradient-primary">
+          <span className="hero-line block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-gradient-primary animate-gradient-x">
             experiencias
           </span>
           <span className="hero-line block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-foreground">
