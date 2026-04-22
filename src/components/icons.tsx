@@ -82,4 +82,23 @@ export const LightbulbIcon = ({ size, ...p }: IconProps) => (
   <svg {...base(size)} {...p}>
     <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.5 1 2.3v0h6v0c0-.8.3-1.7 1-2.3A7 7 0 0 0 12 2z" />
   </svg>
+
+
+export const SearchIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+);
+export const PencilIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" /></svg>
+);
+export const TerminalIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><path d="m4 17 6-6-6-6M12 19h8" /></svg>
+);
+export const RocketIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.9.7-2.2-.1-3a2 2 0 0 0-2.9 0z" /><path d="M12 15 9 12a11 11 0 0 1 5-9 11 11 0 0 1 9 5l-3 3" /><path d="M9 12H4l3-7h6" /><path d="M12 15v5l7-3v-6" /></svg>
+);
+export const SunIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg>
+);
+export const MoonIcon = ({ size, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
 );
