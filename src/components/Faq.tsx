@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Reveal } from "@/components/Reveal";
 
 const faqs = [
   {
@@ -38,35 +39,38 @@ export function Faq() {
       <div className="pointer-events-none absolute right-0 bottom-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-4xl px-6">
-        <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            FAQ
+        <Reveal>
+          <div className="mb-12 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              FAQ
+            </div>
+            <h2 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
+              Preguntas
+              <br />
+              <span className="text-gradient-primary animate-gradient-x font-light italic">frecuentes.</span>
+            </h2>
           </div>
-          <h2 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-            Preguntas
-            <br />
-            <span className="text-gradient-primary font-light italic">frecuentes.</span>
-          </h2>
-        </div>
+        </Reveal>
 
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((f, i) => (
-            <AccordionItem
-              key={f.q}
-              value={`item-${i}`}
-              className="rounded-3xl glass border-0 px-6 transition-colors hover:bg-primary/5"
-            >
-              <AccordionTrigger className="py-6 text-left font-display text-lg font-semibold hover:no-underline md:text-xl">
-                <span className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs text-primary">0{i + 1}</span>
-                  {f.q}
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">
-                {f.a}
-              </AccordionContent>
-            </AccordionItem>
+            <Reveal key={f.q} delay={i * 60}>
+              <AccordionItem
+                value={`item-${i}`}
+                className="rounded-3xl glass border-0 px-6 transition-colors hover:bg-primary/5"
+              >
+                <AccordionTrigger className="py-6 text-left font-display text-lg font-semibold hover:no-underline md:text-xl">
+                  <span className="flex items-baseline gap-4">
+                    <span className="font-mono text-xs text-primary">0{i + 1}</span>
+                    {f.q}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            </Reveal>
           ))}
         </Accordion>
       </div>

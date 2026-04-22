@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLoader } from "@/components/PageLoader";
 import { SmoothScroll } from "@/lib/lenis";
 import { CustomCursor } from "@/components/CustomCursor";
+import { BackgroundFX } from "@/components/BackgroundFX";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Quote } from "@/components/Quote";
@@ -43,10 +46,13 @@ function Index() {
     <>
       <PageLoader />
       <SmoothScroll />
+      <ScrollProgress />
+      <BackgroundFX />
       <CustomCursor />
       <Header />
-      <main className="relative">
+      <main className="relative z-10">
         <Hero />
+        <Marquee />
         <Services />
         <Process />
         <Quote />
