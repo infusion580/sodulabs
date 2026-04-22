@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { Logo } from "@/components/Logo";
 
 export function PageLoader() {
   const [done, setDone] = useState(false);
@@ -39,8 +40,8 @@ export function PageLoader() {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
     >
       <div className="absolute inset-0 bg-gradient-radial opacity-60" />
-      <div ref={wordRef} className="relative font-display text-5xl md:text-7xl font-bold tracking-tight">
-        <span className="text-gradient-primary">SUDO LABS</span>
+      <div ref={wordRef} className="relative font-display text-3xl md:text-5xl">
+        <Logo size={64} />
       </div>
       <div className="relative mt-10 w-64 md:w-80">
         <div className="h-px w-full bg-border overflow-hidden">
