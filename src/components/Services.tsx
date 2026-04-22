@@ -1,7 +1,22 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Code2, Smartphone, Palette, Cpu, Globe, Zap } from "lucide-react";
+import {
+  Code2,
+  Smartphone,
+  Palette,
+  Cpu,
+  Globe,
+  Zap,
+  Bot,
+  Search,
+  Cloud,
+  ShieldCheck,
+  LineChart,
+  Plug,
+  Megaphone,
+  Wrench,
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +27,14 @@ const services = [
   { icon: Cpu, title: "Sistemas a Medida", desc: "ERPs, dashboards y plataformas internas que automatizan tu operación end-to-end." },
   { icon: Globe, title: "E-commerce", desc: "Tiendas online optimizadas para vender: pasarelas, inventario y analítica integrada." },
   { icon: Zap, title: "Automatización & IA", desc: "Integramos IA y workflows para escalar procesos: bots, agentes y pipelines inteligentes." },
+  { icon: Bot, title: "Chatbots & Agentes", desc: "Asistentes inteligentes para WhatsApp, web y redes que atienden, califican y convierten 24/7." },
+  { icon: Search, title: "SEO & Performance", desc: "Optimización técnica, contenido y Core Web Vitals para que Google te encuentre primero." },
+  { icon: Cloud, title: "Cloud & DevOps", desc: "Despliegue, CI/CD, monitoreo e infraestructura escalable en AWS, Vercel y Cloudflare." },
+  { icon: ShieldCheck, title: "Ciberseguridad", desc: "Auditorías, hardening y protección de datos para mantener tu plataforma a salvo." },
+  { icon: LineChart, title: "Analítica & Datos", desc: "Dashboards, tracking y reportes que convierten datos en decisiones de negocio." },
+  { icon: Plug, title: "Integraciones & APIs", desc: "Conectamos Stripe, HubSpot, Notion, Sheets y cualquier sistema con APIs a medida." },
+  { icon: Megaphone, title: "Marketing Digital", desc: "Landing pages, embudos y campañas que generan leads cualificados y ventas reales." },
+  { icon: Wrench, title: "Mantenimiento & Soporte", desc: "Cuidamos, actualizamos y evolucionamos tu producto digital mes a mes." },
 ];
 
 export function Services() {
