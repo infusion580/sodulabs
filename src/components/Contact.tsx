@@ -48,7 +48,7 @@ export function Contact() {
             rel="noopener noreferrer"
             className="group glass rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-glow-sm"
           >
-            <MessageCircle className="h-8 w-8 text-primary mb-4" />
+            <Icons.MessageCircle className="mb-4 h-8 w-8 text-primary" />
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">WhatsApp</div>
             <div className="mt-2 font-display text-xl font-bold group-hover:text-gradient-primary transition">
               Chatea con nosotros
@@ -60,7 +60,7 @@ export function Contact() {
             href="mailto:hola@sudolabs.dev"
             className="group glass rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-glow-sm"
           >
-            <Mail className="h-8 w-8 text-primary mb-4" />
+            <Icons.Mail className="mb-4 h-8 w-8 text-primary" />
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</div>
             <div className="mt-2 font-display text-xl font-bold group-hover:text-gradient-primary transition">
               hola@sudolabs.dev
@@ -69,7 +69,7 @@ export function Contact() {
           </a>
 
           <div className="group glass rounded-3xl p-8">
-            <MapPin className="h-8 w-8 text-primary mb-4" />
+            <Icons.MapPin className="mb-4 h-8 w-8 text-primary" />
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Ubicación</div>
             <div className="mt-2 font-display text-xl font-bold">Remoto · LATAM</div>
             <div className="mt-3 text-sm text-muted-foreground">Trabajamos con clientes globales</div>
@@ -79,16 +79,16 @@ export function Contact() {
         <div className="c-anim mt-16 flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">
             {[
-              { icon: Instagram, href: "#" },
-              { icon: Linkedin, href: "#" },
-              { icon: Github, href: "#" },
+              { icon: Icons.Instagram, href: "#" },
+              { icon: Icons.Linkedin, href: "#" },
+              { icon: Icons.Github, href: "#" },
             ].map((s, i) => (
               <a
                 key={i}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-12 w-12 rounded-full glass flex items-center justify-center hover:bg-primary/20 transition-colors"
+                className="flex h-12 w-12 items-center justify-center rounded-full glass transition-colors hover:bg-primary/20"
               >
                 <s.icon className="h-5 w-5" />
               </a>
