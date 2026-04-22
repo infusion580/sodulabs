@@ -1,13 +1,16 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as LucideIcons from "lucide-react";
-
-const { Mail, MessageCircle, MapPin, Globe, ArrowUpRight } = LucideIcons;
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WHATSAPP_NUMBER = "5215555555555";
+
+const quickLinks = [
+  { label: "Inicio", href: "#hero", short: "01" },
+  { label: "Email", href: "mailto:hola@sudolabs.dev", short: "02" },
+  { label: "Proyecto", href: "#cotizacion", short: "03" },
+];
 
 export function Contact() {
   const root = useRef<HTMLElement>(null);
@@ -23,6 +26,7 @@ export function Contact() {
         scrollTrigger: { trigger: root.current, start: "top 75%" },
       });
     }, root);
+
     return () => ctx.revert();
   }, []);
 
@@ -50,7 +54,9 @@ export function Contact() {
             rel="noopener noreferrer"
             className="group rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-sm"
           >
-            <MessageCircle className="mb-4 h-8 w-8 text-primary" />
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary text-sm font-mono font-semibold text-primary-foreground">
+              WA
+            </div>
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">WhatsApp</div>
             <div className="mt-2 font-display text-xl font-bold transition group-hover:text-primary">
               Chatea con nosotros
@@ -62,7 +68,9 @@ export function Contact() {
             href="mailto:hola@sudolabs.dev"
             className="group rounded-3xl glass p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-sm"
           >
-            <Mail className="mb-4 h-8 w-8 text-primary" />
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary text-sm font-mono font-semibold text-primary-foreground">
+              @
+            </div>
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</div>
             <div className="mt-2 font-display text-xl font-bold transition group-hover:text-primary">
               hola@sudolabs.dev
@@ -71,7 +79,9 @@ export function Contact() {
           </a>
 
           <div className="rounded-3xl glass p-8">
-            <MapPin className="mb-4 h-8 w-8 text-primary" />
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary text-sm font-mono font-semibold text-primary-foreground">
+              MX
+            </div>
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Ubicación</div>
             <div className="mt-2 font-display text-xl font-bold">Remoto · LATAM</div>
             <div className="mt-3 text-sm text-muted-foreground">Trabajamos con clientes globales</div>
@@ -80,18 +90,14 @@ export function Contact() {
 
         <div className="c-anim mt-16 flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">
-            {[
-              { icon: Globe, href: "#hero", label: "Inicio" },
-              { icon: Mail, href: "mailto:hola@sudolabs.dev", label: "Email" },
-              { icon: ArrowUpRight, href: "#cotizacion", label: "Proyecto" },
-            ].map((s, i) => (
+            {quickLinks.map((link) => (
               <a
-                key={i}
-                href={s.href}
-                className="flex h-12 w-12 items-center justify-center rounded-full glass transition-colors hover:bg-primary/20"
-                aria-label={s.label}
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                className="flex h-12 w-12 items-center justify-center rounded-full glass text-xs font-mono tracking-widest text-foreground transition-colors hover:bg-primary/20"
               >
-                <s.icon className="h-5 w-5" />
+                {link.short}
               </a>
             ))}
           </div>
