@@ -60,12 +60,17 @@ export const Route = createRootRoute({
       },
       // Twitter
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sudo Labs — Estudio digital" },
+      { name: "twitter:title", content: "Sudo Labs — Estudio digital · Web, Apps y Sistemas" },
       {
         name: "twitter:description",
         content:
           "Web, apps y sistemas a medida con IA. Estudio digital en LATAM.",
       },
+      { name: "description", content: "Desarrollo de software" },
+      { property: "og:description", content: "Desarrollo de software" },
+      { name: "twitter:description", content: "Desarrollo de software" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/051637d4-bac0-4970-8365-79f25ce6ff21/id-preview-7974fb6d--f6509eae-7b78-4920-9983-d653cb867795.lovable.app-1776890257915.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/051637d4-bac0-4970-8365-79f25ce6ff21/id-preview-7974fb6d--f6509eae-7b78-4920-9983-d653cb867795.lovable.app-1776890257915.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
