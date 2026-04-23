@@ -6,29 +6,76 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon as ArrowUpRight } from "@/components/icons";
 
+const BLOG_URL = "https://sudolabs.dev/blog";
+const OG_IMAGE =
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/051637d4-bac0-4970-8365-79f25ce6ff21/id-preview-7974fb6d--f6509eae-7b78-4920-9983-d653cb867795.lovable.app-1776890257915.png";
+
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog — Sudo Labs · Notas de diseño, código y producto" },
+      { title: "Blog — Sudo Labs · Notas de diseño, código y producto digital" },
       {
         name: "description",
         content:
-          "Artículos del estudio sobre desarrollo web, apps móviles, IA, automatización y diseño de producto.",
+          "Artículos del estudio sobre desarrollo web, apps móviles, IA, automatización y diseño de producto. Aprendizajes reales de proyectos en producción.",
       },
+      {
+        name: "keywords",
+        content:
+          "blog desarrollo web, blog diseño UX, IA aplicada, automatización, TanStack, React, apps móviles, producto digital, Sudo Labs",
+      },
+      { property: "og:type", content: "blog" },
       { property: "og:title", content: "Blog — Sudo Labs · Notas de diseño y código" },
       {
         property: "og:description",
         content:
           "Aprendizajes y decisiones técnicas del estudio: desarrollo, IA y diseño de producto.",
       },
-      { property: "og:url", content: "https://sudolabs.dev/blog" },
+      { property: "og:url", content: BLOG_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Blog — Sudo Labs" },
       { name: "twitter:title", content: "Blog — Sudo Labs" },
       {
         name: "twitter:description",
         content: "Notas del estudio sobre desarrollo, IA y diseño de producto.",
       },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "https://sudolabs.dev/blog" }],
+    links: [
+      { rel: "canonical", href: BLOG_URL },
+      { rel: "alternate", hrefLang: "es-MX", href: BLOG_URL },
+      { rel: "alternate", hrefLang: "es", href: BLOG_URL },
+      { rel: "alternate", hrefLang: "x-default", href: BLOG_URL },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Blog",
+              "@id": `${BLOG_URL}#blog`,
+              url: BLOG_URL,
+              name: "Blog Sudo Labs",
+              description:
+                "Notas del estudio sobre desarrollo, IA y diseño de producto.",
+              inLanguage: "es-MX",
+              publisher: { "@id": "https://sudolabs.dev#organization" },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://sudolabs.dev/" },
+                { "@type": "ListItem", position: 2, name: "Blog", item: BLOG_URL },
+              ],
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: BlogPage,
 });
