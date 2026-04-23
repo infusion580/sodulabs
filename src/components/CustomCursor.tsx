@@ -12,7 +12,8 @@ export function CustomCursor() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(pointer: fine)");
-    if (!mq.matches) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!mq.matches || reduce) return;
     setEnabled(true);
 
     let mx = window.innerWidth / 2;
@@ -63,11 +64,15 @@ export function CustomCursor() {
       <div
         ref={ring}
         data-hover="false"
+        data-custom-cursor=""
+        aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[100] h-10 w-10 rounded-full border border-primary/60 transition-[width,height,background-color,border-color] duration-200 ease-out data-[hover=true]:h-14 data-[hover=true]:w-14 data-[hover=true]:bg-primary/15 data-[hover=true]:border-primary"
         style={{ mixBlendMode: "difference" }}
       />
       <div
         ref={dot}
+        data-custom-cursor=""
+        aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[100] h-1.5 w-1.5 rounded-full bg-primary"
       />
     </>
