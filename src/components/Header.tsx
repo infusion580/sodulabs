@@ -149,8 +149,10 @@ export function Header() {
               </a>
             ))}
 
-            <Link
-              to="/blog"
+            <a
+              href="https://blogsudo.lovable.app"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
               className="group relative font-display text-4xl font-bold tracking-tight text-foreground/80 transition-all hover:text-foreground sm:text-5xl md:text-6xl"
@@ -169,7 +171,7 @@ export function Header() {
                 Blog
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-primary transition-all duration-500 group-hover:w-full" />
               </span>
-            </Link>
+            </a>
           </nav>
 
           <a
