@@ -20,8 +20,8 @@ export function Hero() {
     }
 
     const ctx = gsap.context(() => {
-      // Loader is ~1.0s on mobile, ~1.7s on desktop. Start hero just after.
-      const delay = isMobile ? 1.05 : 1.75;
+      // Loader is ~0.9s on mobile, ~2.0s on desktop. Start hero just after.
+      const delay = isMobile ? 0.85 : 1.95;
       const tl = gsap.timeline({ delay, defaults: { ease: "expo.out" } });
       tl.from(".hero-pill", { y: 30, opacity: 0, duration: 0.7 })
         .from(
