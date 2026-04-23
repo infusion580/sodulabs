@@ -108,7 +108,7 @@
   --secondary-foreground: oklch(0.98 0.005 290);
 
   --muted: oklch(0.16 0.02 290);
-  --muted-foreground: oklch(0.68 0.02 290);
+  --muted-foreground: oklch(0.78 0.02 290);
 
   --accent: oklch(0.55 0.26 305);
   --accent-foreground: oklch(0.99 0 0);
@@ -148,7 +148,7 @@
   --secondary: oklch(0.95 0.01 290);
   --secondary-foreground: oklch(0.1 0.02 290);
   --muted: oklch(0.94 0.01 290);
-  --muted-foreground: oklch(0.4 0.02 290);
+  --muted-foreground: oklch(0.32 0.02 290);
   --accent: oklch(0.5 0.26 305);
   --accent-foreground: oklch(0.99 0 0);
   --border: oklch(0.88 0.01 290);
@@ -177,6 +177,38 @@
   ::selection {
     background-color: var(--primary);
     color: var(--primary-foreground);
+  }
+
+  /* Foco visible global accesible — solo navegación por teclado */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--primary-glow);
+    outline-offset: 3px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 4px oklch(0.62 0.24 295 / 0.25);
+    transition: outline-offset 120ms ease, box-shadow 120ms ease;
+  }
+  /* Skip-link visible al recibir foco */
+  .skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 200;
+    transform: translateY(-150%);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.6rem 1rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-glow-sm);
+    transition: transform 200ms ease;
+  }
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid var(--primary-foreground);
+    outline-offset: 2px;
   }
 }
 
@@ -316,9 +348,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
   }
+  /* Cursor de sistema cuando el usuario pide menos movimiento */
+  html, body, a, button, [role="button"] { cursor: auto !important; }
+  /* Ocultar cursor personalizado y elementos puramente decorativos animados */
+  [data-custom-cursor],
+  .animate-blob,
+  .animate-float,
+  .animate-glow,
+  .animate-aurora,
+  .animate-grid-pan,
+  .animate-marquee,
+  .animate-gradient-x { animation: none !important; }
 }

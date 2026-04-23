@@ -13,8 +13,15 @@ interface RevealProps {
 export function Reveal({ children, className = "", delay = 0, y = 24, as: Tag = "div" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
+  const [reduce, setReduce] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    if (mq?.matches) {
+      setReduce(true);
+      setShown(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
@@ -36,12 +43,16 @@ export function Reveal({ children, className = "", delay = 0, y = 24, as: Tag = 
     <Tag
       ref={ref as never}
       className={className}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : `translateY(${y}px)`,
-        transition: `opacity 800ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 900ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
-        willChange: "opacity, transform",
-      }}
+      style={
+        reduce
+          ? undefined
+          : {
+              opacity: shown ? 1 : 0,
+              transform: shown ? "translateY(0)" : `translateY(${y}px)`,
+              transition: `opacity 800ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 900ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+              willChange: "opacity, transform",
+            }
+      }
     >
       {children}
     </Tag>

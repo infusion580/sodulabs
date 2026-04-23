@@ -74,13 +74,16 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      <a href="#contenido" className="skip-link">
+        Saltar al contenido
+      </a>
       <PageLoader />
       <SmoothScroll />
       <ScrollProgress />
       <BackgroundFX />
       <CustomCursor />
       <Header />
-      <main className="relative z-10">
+      <main id="contenido" className="relative z-10">
         <Hero />
         <Marquee />
         <Services />
