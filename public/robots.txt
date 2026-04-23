@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
+# Permitir crawlers de IA / motores modernos explícitamente
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Host: https://sudolabs.dev
 Sitemap: https://sudolabs.dev/sitemap.xml
