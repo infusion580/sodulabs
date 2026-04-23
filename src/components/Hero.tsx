@@ -20,8 +20,8 @@ export function Hero() {
     }
 
     const ctx = gsap.context(() => {
-      // Loader is ~1.0s on mobile, ~1.7s on desktop. Start hero just after.
-      const delay = isMobile ? 1.05 : 1.75;
+      // Loader is ~0.9s on mobile, ~2.0s on desktop. Start hero just after.
+      const delay = isMobile ? 0.85 : 1.95;
       const tl = gsap.timeline({ delay, defaults: { ease: "expo.out" } });
       tl.from(".hero-pill", { y: 30, opacity: 0, duration: 0.7 })
         .from(
@@ -58,14 +58,14 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20"
     >
-      {/* Background grid + radial */}
-      <div className="absolute inset-0 grid-bg opacity-40" />
+      {/* Background grid + radial — grid sólo en desktop, blur reducido en móvil */}
+      <div className="absolute inset-0 grid-bg opacity-40 hidden md:block" />
       <div className="absolute inset-0 bg-gradient-radial" />
       <div className="absolute inset-0 noise hidden md:block" />
 
-      {/* Floating geometric shapes — reducidos en móvil para mejor FPS */}
-      <div className="hero-shape pointer-events-none absolute top-[15%] left-[8%] h-32 w-32 md:h-48 md:w-48 rounded-full bg-gradient-primary opacity-30 blur-2xl animate-blob" />
-      <div className="hero-shape pointer-events-none absolute bottom-[20%] right-[10%] h-40 w-40 md:h-64 md:w-64 rounded-full bg-accent opacity-25 blur-3xl animate-blob" style={{ animationDelay: "-6s" }} />
+      {/* Floating geometric shapes — en móvil sólo 2 blobs estáticos con blur ligero */}
+      <div className="hero-shape pointer-events-none absolute top-[15%] left-[8%] h-32 w-32 md:h-48 md:w-48 rounded-full bg-gradient-primary opacity-30 blur-xl md:blur-2xl md:animate-blob" />
+      <div className="hero-shape pointer-events-none absolute bottom-[20%] right-[10%] h-40 w-40 md:h-64 md:w-64 rounded-full bg-accent opacity-25 blur-xl md:blur-3xl md:animate-blob" style={{ animationDelay: "-6s" }} />
       <div className="hero-shape pointer-events-none absolute top-[30%] right-[15%] h-20 w-20 md:h-28 md:w-28 border-2 border-primary/40 rotate-45 animate-float hidden sm:block" />
       <div className="hero-shape pointer-events-none absolute bottom-[25%] left-[12%] h-16 w-16 md:h-24 md:w-24 rounded-2xl border-2 border-accent/40 animate-float hidden sm:block" style={{ animationDelay: "-2s" }} />
       <div className="hero-shape pointer-events-none absolute top-[60%] left-[45%] h-3 w-3 rounded-full bg-primary shadow-glow animate-glow hidden md:block" />
