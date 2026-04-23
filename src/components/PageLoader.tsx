@@ -22,8 +22,8 @@ export function PageLoader() {
     }
 
     // Faster on mobile to feel instant
-    const countDur = isMobile ? 0.7 : 1.2;
-    const outDur = isMobile ? 0.55 : 0.8;
+    const countDur = isMobile ? 0.5 : 1.2;
+    const outDur = isMobile ? 0.4 : 0.8;
 
     const tl = gsap.timeline({
       onComplete: () => setDone(true),
