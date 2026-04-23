@@ -175,6 +175,7 @@ export function Header() {
           <a
             href="/#cotizacion"
             onClick={() => setOpen(false)}
+            tabIndex={open ? 0 : -1}
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
             style={{
               transitionDelay: open ? `${(links.length + 1) * 50}ms` : "0ms",
