@@ -77,7 +77,10 @@ export function Hero() {
           Estudio digital · 2026
         </div>
 
-        <h1 className="mt-8 font-display font-bold tracking-tighter leading-[0.95]">
+        <h1
+          className="mt-8 font-display font-bold tracking-tighter leading-[0.95]"
+          aria-label="Construimos experiencias digitales que importan"
+        >
           <span className="hero-line block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-foreground">
             Construimos
           </span>
