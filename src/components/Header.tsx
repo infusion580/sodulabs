@@ -171,7 +171,7 @@ export function Header() {
                 Blog
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-primary transition-all duration-500 group-hover:w-full" />
               </span>
-            </Link>
+            </a>
           </nav>
 
           <a
