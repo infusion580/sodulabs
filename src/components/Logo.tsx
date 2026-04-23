@@ -18,6 +18,9 @@ export function Logo({ size = 36, showWordmark = true, className = "", variant =
   const [blink, setBlink] = useState(true);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return; // no parpadear si el usuario pide menos movimiento
     const id = setInterval(() => setBlink((b) => !b), 600);
     return () => clearInterval(id);
   }, []);

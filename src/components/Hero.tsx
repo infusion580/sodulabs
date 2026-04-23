@@ -61,15 +61,15 @@ export function Hero() {
       {/* Background grid + radial */}
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute inset-0 bg-gradient-radial" />
-      <div className="absolute inset-0 noise" />
+      <div className="absolute inset-0 noise hidden md:block" />
 
-      {/* Floating geometric shapes */}
+      {/* Floating geometric shapes — reducidos en móvil para mejor FPS */}
       <div className="hero-shape pointer-events-none absolute top-[15%] left-[8%] h-32 w-32 md:h-48 md:w-48 rounded-full bg-gradient-primary opacity-30 blur-2xl animate-blob" />
       <div className="hero-shape pointer-events-none absolute bottom-[20%] right-[10%] h-40 w-40 md:h-64 md:w-64 rounded-full bg-accent opacity-25 blur-3xl animate-blob" style={{ animationDelay: "-6s" }} />
-      <div className="hero-shape pointer-events-none absolute top-[30%] right-[15%] h-20 w-20 md:h-28 md:w-28 border-2 border-primary/40 rotate-45 animate-float" />
-      <div className="hero-shape pointer-events-none absolute bottom-[25%] left-[12%] h-16 w-16 md:h-24 md:w-24 rounded-2xl border-2 border-accent/40 animate-float" style={{ animationDelay: "-2s" }} />
-      <div className="hero-shape pointer-events-none absolute top-[60%] left-[45%] h-3 w-3 rounded-full bg-primary shadow-glow animate-glow" />
-      <div className="hero-shape pointer-events-none absolute top-[20%] right-[35%] h-2 w-2 rounded-full bg-accent shadow-glow-sm animate-glow" style={{ animationDelay: "-1s" }} />
+      <div className="hero-shape pointer-events-none absolute top-[30%] right-[15%] h-20 w-20 md:h-28 md:w-28 border-2 border-primary/40 rotate-45 animate-float hidden sm:block" />
+      <div className="hero-shape pointer-events-none absolute bottom-[25%] left-[12%] h-16 w-16 md:h-24 md:w-24 rounded-2xl border-2 border-accent/40 animate-float hidden sm:block" style={{ animationDelay: "-2s" }} />
+      <div className="hero-shape pointer-events-none absolute top-[60%] left-[45%] h-3 w-3 rounded-full bg-primary shadow-glow animate-glow hidden md:block" />
+      <div className="hero-shape pointer-events-none absolute top-[20%] right-[35%] h-2 w-2 rounded-full bg-accent shadow-glow-sm animate-glow hidden md:block" style={{ animationDelay: "-1s" }} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <div className="hero-pill inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
