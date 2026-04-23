@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { MenuIcon as Menu, CloseIcon as X } from "@/components/icons";
 import { Logo } from "@/components/Logo";
@@ -34,10 +34,29 @@ export function Header() {
     };
   }, []);
 
-  // Bloquear scroll del body cuando el menú está abierto
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+
+  // Bloquear scroll del body cuando el menú está abierto + cerrar con Escape
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      // Mover foco al primer enlace del menú para teclado/screen readers
+      const t = window.setTimeout(() => firstLinkRef.current?.focus(), 80);
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setOpen(false);
+          buttonRef.current?.focus();
+        }
+      };
+      window.addEventListener("keydown", onKey);
+      return () => {
+        window.clearTimeout(t);
+        window.removeEventListener("keydown", onKey);
+        document.body.style.overflow = "";
+      };
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -70,10 +89,12 @@ export function Header() {
             </a>
 
             <button
+              ref={buttonRef}
               onClick={() => setOpen((v) => !v)}
               className="relative inline-flex h-11 w-11 items-center justify-center rounded-full glass transition-transform hover:scale-105"
               aria-label={open ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={open}
+              aria-controls="menu-principal"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -83,6 +104,11 @@ export function Header() {
 
       {/* Overlay menu fullscreen */}
       <div
+        id="menu-principal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú de navegación"
+        aria-hidden={!open}
         className={`fixed inset-0 z-40 transition-all duration-500 ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
