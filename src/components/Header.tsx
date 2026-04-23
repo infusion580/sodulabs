@@ -126,8 +126,10 @@ export function Header() {
             {links.map((l, i) => (
               <a
                 key={l.href}
+                ref={i === 0 ? firstLinkRef : undefined}
                 href={l.href}
                 onClick={() => setOpen(false)}
+                tabIndex={open ? 0 : -1}
                 className="group relative font-display text-4xl font-bold tracking-tight text-foreground/80 transition-all hover:text-foreground sm:text-5xl md:text-6xl"
                 style={{
                   transitionDelay: open ? `${i * 50}ms` : "0ms",
@@ -150,6 +152,7 @@ export function Header() {
             <Link
               to="/blog"
               onClick={() => setOpen(false)}
+              tabIndex={open ? 0 : -1}
               className="group relative font-display text-4xl font-bold tracking-tight text-foreground/80 transition-all hover:text-foreground sm:text-5xl md:text-6xl"
               style={{
                 transitionDelay: open ? `${links.length * 50}ms` : "0ms",
