@@ -14,12 +14,12 @@ export function Marquee() {
         </p>
       </div>
 
-      <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-        <div className="flex w-max animate-[marquee_40s_linear_infinite] gap-12 px-6">
+      <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] motion-reduce:overflow-x-auto">
+        <div className="flex w-max animate-[marquee_40s_linear_infinite] gap-8 px-6 motion-reduce:animate-none md:gap-12">
           {items.map((t, i) => (
             <span
               key={`${t}-${i}`}
-              className="font-display text-3xl font-semibold text-muted-foreground/60 transition-colors hover:text-foreground md:text-4xl"
+              className="font-display text-2xl font-semibold text-muted-foreground/70 transition-colors hover:text-foreground sm:text-3xl md:text-4xl"
             >
               {t}
             </span>
