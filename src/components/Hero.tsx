@@ -6,16 +6,40 @@ export function Hero() {
   const root = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 2.4, defaults: { ease: "expo.out" } });
-      tl.from(".hero-pill", { y: 40, opacity: 0, duration: 1 })
-        .from(".hero-line", { y: 120, opacity: 0, duration: 1.2, stagger: 0.12 }, "-=0.7")
-        .from(".hero-sub", { y: 30, opacity: 0, duration: 1 }, "-=0.7")
-        .from(".hero-cta", { y: 30, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.6")
-        .from(".hero-meta", { opacity: 0, y: 20, duration: 0.8, stagger: 0.1 }, "-=0.5")
-        .from(".hero-shape", { scale: 0, opacity: 0, duration: 1.4, stagger: 0.15, ease: "elastic.out(1, 0.6)" }, "-=1.2");
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.innerWidth < 768;
+    const isCoarse = window.matchMedia?.("(pointer: coarse)").matches;
 
-      // Parallax on mouse move
+    if (reduce) {
+      // Show everything immediately
+      gsap.set(
+        [".hero-pill", ".hero-line", ".hero-sub", ".hero-cta", ".hero-meta", ".hero-shape"],
+        { clearProps: "all", opacity: 1, y: 0, scale: 1 }
+      );
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      // Loader is ~1.0s on mobile, ~1.7s on desktop. Start hero just after.
+      const delay = isMobile ? 1.05 : 1.75;
+      const tl = gsap.timeline({ delay, defaults: { ease: "expo.out" } });
+      tl.from(".hero-pill", { y: 30, opacity: 0, duration: 0.7 })
+        .from(
+          ".hero-line",
+          { y: isMobile ? 60 : 100, opacity: 0, duration: 0.9, stagger: 0.08 },
+          "-=0.5"
+        )
+        .from(".hero-sub", { y: 24, opacity: 0, duration: 0.7 }, "-=0.55")
+        .from(".hero-cta", { y: 24, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=0.45")
+        .from(".hero-meta", { opacity: 0, y: 18, duration: 0.6, stagger: 0.08 }, "-=0.4")
+        .from(
+          ".hero-shape",
+          { scale: 0, opacity: 0, duration: 1, stagger: 0.1, ease: "back.out(1.6)" },
+          "-=0.9"
+        );
+
+      // Parallax solo en desktop con puntero fino (no en táctil/móvil)
+      if (isCoarse || isMobile) return;
       const onMove = (e: MouseEvent) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 30;
         const y = (e.clientY / window.innerHeight - 0.5) * 30;
