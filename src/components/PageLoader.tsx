@@ -10,24 +10,46 @@ export function PageLoader() {
   const wordRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    // Skip loader entirely if user prefers reduced motion
+    if (reduce) {
+      setDone(true);
+      return;
+    }
+
+    // Faster on mobile to feel instant
+    const countDur = isMobile ? 0.7 : 1.2;
+    const outDur = isMobile ? 0.55 : 0.8;
+
     const tl = gsap.timeline({
-      onComplete: () => setTimeout(() => setDone(true), 200),
+      onComplete: () => setDone(true),
     });
 
     const counter = { v: 0 };
     tl.to(counter, {
       v: 100,
-      duration: 1.8,
+      duration: countDur,
       ease: "power2.inOut",
       onUpdate: () => {
-        if (counterRef.current) counterRef.current.textContent = Math.round(counter.v).toString().padStart(3, "0");
+        if (counterRef.current)
+          counterRef.current.textContent = Math.round(counter.v)
+            .toString()
+            .padStart(3, "0");
         if (barRef.current) barRef.current.style.width = `${counter.v}%`;
       },
     })
-      .to(wordRef.current, { y: -40, opacity: 0, duration: 0.5, ease: "power3.in" }, "-=0.2")
+      .to(
+        wordRef.current,
+        { y: -30, opacity: 0, duration: 0.35, ease: "power3.in" },
+        "-=0.15"
+      )
       .to(containerRef.current, {
         yPercent: -100,
-        duration: 1,
+        duration: outDur,
         ease: "expo.inOut",
       });
   }, []);
