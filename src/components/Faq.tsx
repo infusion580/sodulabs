@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "¿Cómo manejan los pagos?",
-    a: "Trabajamos con un anticipo del 40% para arrancar, 30% en la entrega del diseño y 30% al lanzamiento. Aceptamos transferencia, Stripe y crypto.",
+    a: "Trabajamos con un anticipo del 40% para arrancar, 30% en la entrega del diseño y 30% al lanzamiento. Aceptamos únicamente transferencia bancaria.",
   },
   {
     q: "¿Qué pasa después del lanzamiento?",
