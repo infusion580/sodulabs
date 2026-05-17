@@ -23,8 +23,8 @@ function buildSvg(textColor) {
     <rect x="44" y="45" width="8" height="3" fill="url(#g)"/>
   </g>
 
-  <text x="160" y="94" font-family="Space Grotesk" font-size="72" font-weight="300" fill="${textColor}">sudo</text>
-  <text x="318" y="94" font-family="Space Grotesk" font-size="72" font-weight="700" fill="url(#gw)">.labs</text>
+  <text x="160" y="94" font-family="SpaceGrotesk" font-size="72" font-weight="300" fill="${textColor}">sudo</text>
+  <text x="318" y="94" font-family="SpaceGrotesk" font-size="72" font-weight="700" fill="url(#gw)">.labs</text>
 </svg>`;
 }
 
@@ -34,7 +34,7 @@ function render(svg, out) {
     font: {
       fontFiles: ['/tmp/SpaceGrotesk-Light.ttf', '/tmp/SpaceGrotesk-Bold.ttf'],
       loadSystemFonts: false,
-      defaultFontFamily: 'Space Grotesk',
+      defaultFontFamily: 'SpaceGrotesk',
     },
   });
   const png = resvg.render();
