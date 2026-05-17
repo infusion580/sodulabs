@@ -2,8 +2,8 @@ import { Resvg } from '@resvg/resvg-js';
 import opentype from 'opentype.js';
 import fs from 'fs';
 
-const light = opentype.loadSync('/tmp/SpaceGrotesk-Light.ttf');
-const bold = opentype.loadSync('/tmp/SpaceGrotesk-Bold.ttf');
+const light = opentype.parse(fs.readFileSync('/tmp/SpaceGrotesk-Light.ttf').buffer);
+const bold = opentype.parse(fs.readFileSync('/tmp/SpaceGrotesk-Bold.ttf').buffer);
 
 function textPath(font, text, x, y, size) {
   const p = font.getPath(text, x, y, size);
