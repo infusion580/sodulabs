@@ -2,10 +2,16 @@ import { Resvg } from '@resvg/resvg-js';
 import opentype from 'opentype.js';
 import fs from 'fs';
 
-const light = opentype.parse(fs.readFileSync('/tmp/SpaceGrotesk-Light.ttf').buffer);
-const bold = opentype.parse(fs.readFileSync('/tmp/SpaceGrotesk-Bold.ttf').buffer);
+const buf = fs.readFileSync('/tmp/SpaceGrotesk-Light.ttf');
+const font = opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 
-function textPath(font, text, x, y, size) {
+// Try variation
+try { font.variation.set({ wght: 300 }); } catch (e) { console.log('no variation:', e.message); }
+
+function textPath(text, x, y, size, weight) {
+  if (font.variation?.set) {
+    try { font.variation.set({ wght: weight }); } catch {}
+  }
   const p = font.getPath(text, x, y, size);
   return { d: p.toPathData(2), width: font.getAdvanceWidth(text, size) };
 }
@@ -14,9 +20,9 @@ function buildSvg(textColor) {
   const fontSize = 76;
   const baseY = 100;
   const startX = 168;
-  const sudo = textPath(light, 'sudo', startX, baseY, fontSize);
-  const labs = textPath(bold, '.labs', startX + sudo.width, baseY, fontSize);
-  const totalW = startX + sudo.width + labs.width + 24;
+  const sudo = textPath('sudo', startX, baseY, fontSize, 300);
+  const labs = textPath('.labs', startX + sudo.width + 2, baseY, fontSize, 700);
+  const totalW = Math.ceil(startX + sudo.width + 2 + labs.width + 20);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalW} 140" width="${totalW*4}" height="560">
   <defs>
@@ -37,7 +43,7 @@ function buildSvg(textColor) {
           stroke="url(#g)" stroke-width="3" stroke-linecap="square" fill="none"/>
     <rect x="44" y="45" width="8" height="3" fill="url(#g)"/>
   </g>
-  <path d="${sudo.d}" fill="${textColor}"/>
+  <path d="${sudo.d}" fill="${textColor}" opacity="0.92"/>
   <path d="${labs.d}" fill="url(#gw)"/>
 </svg>`;
 }
