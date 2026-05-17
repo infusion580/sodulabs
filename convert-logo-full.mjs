@@ -2,7 +2,7 @@ import { Resvg } from '@resvg/resvg-js';
 import opentype from 'opentype.js';
 import fs from 'fs';
 
-const buf = fs.readFileSync('/tmp/SpaceGrotesk-Light.ttf');
+const buf = fs.readFileSync('/tmp/SpaceGrotesk.ttf');
 const font = opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 
 // Try variation
