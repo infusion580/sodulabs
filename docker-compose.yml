@@ -1,6 +1,6 @@
 services:
   sodulabs:
-    image: infusion580/sodulabs:latest
+    build: .
     container_name: sodulabs
     restart: unless-stopped
     networks:
